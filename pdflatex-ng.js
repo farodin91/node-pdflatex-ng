@@ -99,7 +99,7 @@ PDFLatex.prototype.typeset = function(callback) {
             var command = 'pdflatex -halt-on-error  -file-line-error -output-directory "' + this.outputDirectory + '" "' + this.inputPath + '"';
             //util.puts(command);
             err = exec(command, function(err, stdout, stderr) {
-                callback(err, true, latexErrors(stdout));
+                callback(err, stdout, latexErrors(stdout));
             });
         } else {
             callback(new Error(rv.str));
